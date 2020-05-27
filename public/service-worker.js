@@ -79,8 +79,11 @@ evt.waitUntil(
 });
 
 
+self.addEventListener('fetch', (evt) => {
+  console.log('[ServiceWorker] Fetch', evt.request.url);
+  // CODELAB: Add fetch event handler here.
 
-// CODELAB: Add fetch event handler here.
+ // CODELAB: Add fetch event handler here.
 if (evt.request.mode !== 'navigate') {
   // Not a page navigation, bail.
   return;
@@ -93,4 +96,7 @@ evt.respondWith(
                 return cache.match('offline.html');
               });
         })
-)
+);
+ 
+ 
+});
